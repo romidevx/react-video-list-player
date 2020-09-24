@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import "./App.css";
 
-function App() {
+import VideoListItem from './components/VideoListItem';
+
+export default function App() {
+
+  const [videoUrl,setVideoUrl] = useState('https://www.youtube.com/embed/x1rQ61otgtU')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='video-content'>
+
+        <div className='video-wrapper'>
+          <iframe src={videoUrl} 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen /> 
+        </div>
+
+        <div className='video-list'>
+         <VideoListItem setVideoUrl={setVideoUrl}/> 
+        </div>
+
     </div>
   );
 }
-
-export default App;
